@@ -1,16 +1,24 @@
 public class Converter {
 
-    private static final String NO_SUCH_METHOD_MESSAGE = "No such method.";
-    private static final String WRONG_NUMBER_FORMAT_MESSAGE = "Wrong number format.";
+    private static final String ERROR_NO_SUCH_METHOD = "No such method error.";
+    private static final String ERROR_NOT_A_NUMBER = "Wrong number format error.";
+    private static final String ERROR_NOT_POSITIVE_NUMBER = "Not positive number error.";
 
-    public final int[] ARABIC_VALUES = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
-    public final String[] ROMAN_VALUES = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+    private final int[] ARABIC_VALUES = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+    private final String[] ROMAN_VALUES = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
 
     public Converter() {}
 
     public String convert(String convertMethod, String numberToConvert) {
 
-        if(checkIfCanParseNumber(numberToConvert)){
+        boolean isNumberParsable = checkIfCanParseNumber(numberToConvert);
+        boolean isNumberPositive = false;
+
+        if(isNumberParsable){
+            isNumberPositive = checkIfIsNumberPositive(numberToConvert);
+        }
+
+        if(isNumberParsable && isNumberPositive){
             Integer intNumber = Integer.parseInt(numberToConvert);
 
             switch (convertMethod) {
@@ -21,11 +29,14 @@ public class Converter {
                     return convertToHex(intNumber);
 
                 default:
-                    return NO_SUCH_METHOD_MESSAGE;
+                    return ERROR_NO_SUCH_METHOD;
             }
         }
+        else if(!isNumberParsable){
+            return ERROR_NOT_A_NUMBER;
+        }
         else{
-            return WRONG_NUMBER_FORMAT_MESSAGE;
+            return ERROR_NOT_POSITIVE_NUMBER;
         }
     }
 
@@ -52,5 +63,9 @@ public class Converter {
         catch (NumberFormatException e){
             return false;
         }
+    }
+
+    private boolean checkIfIsNumberPositive(String numberToCheck){
+        return Integer.valueOf(numberToCheck) > 0;
     }
 }
