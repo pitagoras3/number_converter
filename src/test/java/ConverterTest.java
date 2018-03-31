@@ -1,3 +1,5 @@
+import static org.junit.Assert.*;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -16,7 +18,7 @@ public class ConverterTest {
         String numberToConvert = "10";
         String convertResult = converter.convert(wrongConvertMethod, numberToConvert);
 
-        assert convertResult.equals(Converter.ERROR_NO_SUCH_METHOD);
+        assertEquals(convertResult, Converter.ERROR_NO_SUCH_METHOD);
     }
 
     @Test
@@ -25,7 +27,7 @@ public class ConverterTest {
         String notNumber = "ddddd";
         String convertResult = converter.convert(convertMethod, notNumber);
 
-        assert convertResult.equals(Converter.ERROR_NOT_A_NUMBER);
+        assertEquals(convertResult, Converter.ERROR_NOT_A_NUMBER);
     }
 
     @Test
@@ -34,7 +36,7 @@ public class ConverterTest {
         String notPositiveNumber = "0";
         String convertResult = converter.convert(convertMethod, notPositiveNumber);
 
-        assert convertResult.equals(Converter.ERROR_NOT_POSITIVE_NUMBER);
+        assertEquals(convertResult, Converter.ERROR_NOT_POSITIVE_NUMBER);
     }
 
     @Test
@@ -43,24 +45,26 @@ public class ConverterTest {
         String notPositiveNumber = "-10";
         String convertResult = converter.convert(convertMethod, notPositiveNumber);
 
-        assert convertResult.equals(Converter.ERROR_NOT_POSITIVE_NUMBER);
+        assertEquals(convertResult, Converter.ERROR_NOT_POSITIVE_NUMBER);
     }
 
     @Test
     public void testConvertWithCorrectRomanData(){
         String convertMethod = "roman";
         String numberToConvert = "15";
+        String romanNumberToCompare = "XV";
         String convertResult = converter.convert(convertMethod, numberToConvert);
 
-        assert convertResult.equals("XV");
+        assertEquals(convertResult, romanNumberToCompare);
     }
 
     @Test
     public void testConvertWithCorrectHexData(){
         String convertMethod = "hex";
         String numberToConvert = "15";
+        String hexNumberToCompare = "f";
         String convertResult = converter.convert(convertMethod, numberToConvert);
 
-        assert convertResult.equals("f");
+        assertEquals(convertResult, hexNumberToCompare);
     }
 }

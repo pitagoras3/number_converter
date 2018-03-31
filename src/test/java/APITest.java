@@ -1,7 +1,6 @@
-import org.junit.Assert;
-import org.junit.Test;
 import static org.junit.Assert.*;
 
+import org.junit.Test;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -53,22 +52,22 @@ public class APITest {
     public void testConvertToRomanRequest() throws IOException {
         String convertMethod = "roman";
         String numberToConvert = "123";
-        String romanNumberToCheck = "CXXIII";
+        String romanNumberToCompare = "CXXIII";
         String convertURL = String.format(BASIC_URL_FORMAT, convertMethod, numberToConvert);
 
         String result = callURLRequest(GET_REQUEST_METHOD, convertURL);
-        assertEquals(result, romanNumberToCheck);
+        assertEquals(result, romanNumberToCompare);
     }
 
     @Test
     public void testConvertToHexRequest() throws IOException {
         String convertMethod = "hex";
         String numberToConvert = "123";
-        String hexNumberToCheck = "7b";
+        String hexNumberToCompare = "7b";
         String convertURL = String.format(BASIC_URL_FORMAT, convertMethod, numberToConvert);
 
         String result = callURLRequest(GET_REQUEST_METHOD, convertURL);
-        assertEquals(result, hexNumberToCheck);
+        assertEquals(result, hexNumberToCompare);
     }
 
     private String callURLRequest(String requestMethod, String URL) throws IOException {
