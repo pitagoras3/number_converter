@@ -3,7 +3,7 @@
 NumberConverter implemented for recruitment process in Comarch company.
 
 ## What do you need?
-The only things which you need to run this project, is to have:
+The only things which you need to run this project is to have:
 - Java 8,
 - Maven (working `mvn` command in terminal),
 - Working internet connection,
