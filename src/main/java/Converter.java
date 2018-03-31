@@ -1,8 +1,11 @@
 public class Converter {
 
     private static final String ERROR_NO_SUCH_METHOD = "No such method error.";
-    private static final String ERROR_NOT_A_NUMBER = "Wrong number format error.";
+    private static final String ERROR_NOT_A_NUMBER = "Not a number error.";
     private static final String ERROR_NOT_POSITIVE_NUMBER = "Not positive number error.";
+
+    private static final String METHOD_ROMAN = "roman";
+    private static final String METHOD_HEX = "hex";
 
     private final int[] ARABIC_VALUES = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
     private final String[] ROMAN_VALUES = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
@@ -22,10 +25,10 @@ public class Converter {
             Integer intNumber = Integer.parseInt(numberToConvert);
 
             switch (convertMethod) {
-                case "roman":
+                case METHOD_ROMAN:
                     return convertToRoman(intNumber);
 
-                case "hex":
+                case METHOD_HEX:
                     return convertToHex(intNumber);
 
                 default:
@@ -55,9 +58,9 @@ public class Converter {
         return Integer.toHexString(numberToConvert);
     }
 
-    private boolean checkIfCanParseNumber(String numberToParse){
+    private boolean checkIfCanParseNumber(String numberToCheck){
         try{
-            Integer.valueOf(numberToParse);
+            Integer.valueOf(numberToCheck);
             return true;
         }
         catch (NumberFormatException e){
