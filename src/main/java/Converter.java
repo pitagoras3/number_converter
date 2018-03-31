@@ -1,8 +1,8 @@
 public class Converter {
 
-    private static final String ERROR_NO_SUCH_METHOD = "No such method error.";
-    private static final String ERROR_NOT_A_NUMBER = "Not a number error.";
-    private static final String ERROR_NOT_POSITIVE_NUMBER = "Not positive number error.";
+    public static final String ERROR_NOT_A_NUMBER = "Not a number error.";
+    public static final String ERROR_NO_SUCH_METHOD = "No such method error.";
+    public static final String ERROR_NOT_POSITIVE_NUMBER = "Not positive number error.";
 
     private static final String METHOD_ROMAN = "roman";
     private static final String METHOD_HEX = "hex";
