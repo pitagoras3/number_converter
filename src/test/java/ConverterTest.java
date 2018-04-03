@@ -49,6 +49,15 @@ public class ConverterTest {
     }
 
     @Test
+    public void testConvertWithBiggerThanIntNumber(){
+        String convertMethod = "hex";
+        String biggerThanIntNumber = "12354687900";
+        String converterResult = converter.convert(convertMethod, biggerThanIntNumber);
+
+        assertEquals(converterResult, Converter.ERROR_NOT_A_NUMBER);
+    }
+
+    @Test
     public void testConvertWithCorrectRomanData(){
         String convertMethod = "roman";
         String numberToConvert = "15";
