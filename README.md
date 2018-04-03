@@ -82,6 +82,6 @@ As part of exercise I wrote unit tests for project. There are two `@Test` classe
 - APITest
 - ConverterTest
 
-`APITest` tests connection with API by sending different requests - it is __necesarry__ to have running API during this test (in other case test methods inside this class will mostly fail).
+`APITest` tests connection with API by sending different requests - it is __necessary__ to have running API during this test (in other case test methods inside this class will mostly fail).
 
 `ConverterTest` class can work without running API - it tests backend methods which are responsible for conversion to specific numeral systems.
