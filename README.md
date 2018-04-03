@@ -15,6 +15,8 @@ Simple as that:
 - Open root project folder in terminal,
 - Run `mvn exec:java`
 
+Or... Just run `main(String[] args)` function placed in `API` class in your IDE.
+
 ## How to use it?
 You can use your internet browser or Postman to use this REST API.
 
